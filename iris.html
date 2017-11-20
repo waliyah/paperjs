@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js"></script>
+
+<script type="text/paperscript" canvas="myCanvas">
+	
+    
+   // Create a 12-gon shaped path for the iris
+   var iris = new Path.RegularPolygon(new Point(view.center), 12, 300);
+   iris.fillColor = '#4F4E33';
+   iris.strokeColor ='black';
+   iris.strokeWidth = 7;
+   iris.selected = false;
+   
+   var tc1 = new Path.RegularPolygon(new Point(view.center), 3, 300);
+    tc1.fillColor = '#686E2E';
+    var tc2 = tc1.clone();
+    tc2.rotate(30,view.center);
+    
+    var tc3 = tc2.clone();
+    tc3.rotate(30, view.center);
+    
+    var tc4 = tc3.clone();
+    tc4.rotate(30, view.center);
+   
+    // third 12-gon
+    var iris3 = new Path.RegularPolygon(new Point(view.center),12,210);
+    iris3.fillColor = '#6F613A';
+    iris3.selected = false;
+    iris3.rotate(15);
+    
+    var tb1 = new Path.RegularPolygon(new Point(view.center), 3, 210);
+    tb1.fillColor = '#867C52';
+    tb1.rotate(15,view.center);
+    
+    var tb2 = tb1.clone();
+    tb2.rotate(60,view.center);
+    
+    /// 4b ring
+    var tb11 = new Path.RegularPolygon(new Point(view.center), 3, 210);
+    tb11.fillColor = '#3A362';
+    tb11.rotate(45, view.center);
+    
+    var tb22 = tb11.clone();
+    tb22.rotate(60,view.center);
+
+   
+   //second 12-gon
+    var iris2 = new Path.RegularPolygon(new Point(view.center),12,150);
+    iris2.fillColor = '#6f5731';
+    iris2.selected = false;
+    
+   
+    var ta1 = new Path.RegularPolygon(new Point(view.center), 3, 150);
+    ta1.fillColor = '#4f3629';
+    var ta2 = ta1.clone();
+    ta2.rotate(30,view.center);
+    
+    var ta3 = ta2.clone();
+    ta3.rotate(30, view.center);
+    
+    var ta4 = ta3.clone();
+    ta4.rotate(30, view.center);
+
+    //Now recreate for pupil but smaller
+    var pupil = new Path.RegularPolygon(new Point(view.center), 12, 100);
+    pupil.fillColor = 'black';
+    pupil.selected = false;
+    pupil.rotate(15);
+
+    
+  
+
+
+function onFrame(event) {
+
+    pupil.rotate(-0.25,view.center);
+	ta1.rotate(0.25, view.center);
+    ta2.rotate(0.25, view.center);
+    ta3.rotate(0.25, view.center);
+    ta4.rotate(0.25, view.center);
+    iris2.rotate(0.25,view.center);
+    tb1.rotate(-0.25, view.center);
+    tb2.rotate(-0.25, view.center);
+    tb11.rotate(-0.25, view.center);
+    tb22.rotate(-0.25, view.center);
+    iris3.rotate(-0.25,view.center);
+    tc1.rotate(0.25, view.center);
+    tc2.rotate(0.25, view.center);
+    tc3.rotate(0.25, view.center);
+    tc4.rotate(0.25, view.center);
+    iris.rotate(0.25,view.center);
+      
+}
+
+
+</script>
+    
+<style type="text/css">
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Scale canvas with resize attribute to full size */
+canvas[resize] {
+    width: 100%;
+    height: 100%;
+}
+</style>
+    
+</head>
+<body>
+	<canvas id="myCanvas" resize="true"></canvas>
+</body>
+</html>
